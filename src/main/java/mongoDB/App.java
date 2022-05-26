@@ -1,5 +1,4 @@
 package mongoDB;
-
 import ClassesMain.Patient;
 
 import java.text.ParseException;
@@ -153,6 +152,7 @@ public class App {
                         name = validateInput("Enter patient's name :", String.class);
                     }
                     DBUtils.getInstance().deletePatient(name);
+                    System.out.println(name + " has been deleted");
                     System.out.println("------------------------------------------------------");
                     System.out.println();
                     menu();
@@ -193,7 +193,7 @@ public class App {
                     }
                     if (DBUtils.getInstance().getPatientHourOfVisit(name) != null) {
                         DBUtils.getInstance().updatePatientHourOfVisit(name, parseDate);
-                        System.out.println(name + " time of visit is now " + DBUtils.getInstance().getPatientHourOfVisit(name));
+                        System.out.println(name + "'s time of visit is now " + DBUtils.getInstance().getPatientHourOfVisit(name));
                         System.out.println("------------------------------------------------------");
                         System.out.println();
                         menu();
