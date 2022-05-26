@@ -1,5 +1,5 @@
 # mongoDB-DesignPatterns 
-this is a two sides application.
+this is a two sided application.
 2 Main classes defined.
-1 for the Database application itself
-the other one is in the classes Folder to initiate the project that contains Builder and strategy Design patterns.
+one for the Database application which is the mongoDB directory
+the other one is in the MainClass directory,and it contains data manipulations,Builder and strategy Design patterns.
