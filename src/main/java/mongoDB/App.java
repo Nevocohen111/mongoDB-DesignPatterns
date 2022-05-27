@@ -35,7 +35,6 @@ public class App {
     }
 
 
-
     public static void addPatient() {
         boolean isHealthy = false;
         String name = validateInput("Enter patient's name :",String.class);
