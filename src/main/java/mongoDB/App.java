@@ -39,7 +39,7 @@ public class App {
     public static void addPatient() {
         boolean isHealthy = false;
         String name = validateInput("Enter patient's name :",String.class);
-        while(!Objects.requireNonNull(name).matches("[a-zA-Z]+")) {
+        while(!Objects.requireNonNull(name).matches("[a-zA-Z\\s]+")) {
             System.out.println("Invalid input");
             name = validateInput("Enter patient's name :",String.class);
         }
@@ -49,16 +49,16 @@ public class App {
             age = validateInput("Enter patient's age :",int.class);
         }
         String check = validateInput("Enter patient's health state(healthy/sick):",String.class);
-        if(Objects.requireNonNull(check).equalsIgnoreCase("Healthy")) {
-            isHealthy = true;
-        } else if(check.equalsIgnoreCase("Sick")) {
-            isHealthy = false;
-        } else {
             while(!Objects.requireNonNull(check).equalsIgnoreCase("Healthy") && !check.equalsIgnoreCase("Sick")) {
                 System.out.println("Invalid input");
                 check = validateInput("Enter patient's health state(healthy/sick):",String.class);
             }
+        if(Objects.requireNonNull(check).equalsIgnoreCase("Healthy")) {
+            isHealthy = true;
+        } else if(check.equalsIgnoreCase("Sick")) {
+            isHealthy = false;
         }
+
         String reservationId = validateInput("Enter patient's reservation id:",String.class);
         while(!Objects.requireNonNull(reservationId).matches("\\d+") || reservationId.length() != 3) {
             System.out.println("Invalid input");
@@ -108,13 +108,13 @@ public class App {
         System.out.println("7.Find a patient by a given name");
         System.out.println("8.Print all patients");
         System.out.println("9.Exit");
+        System.out.print("Enter your choice: ");
     }
 
 
     public static void app() {
         System.out.println("Hospital database!");
         menu();
-        System.out.print("Enter your choice: ");
         String choice = scanner.nextLine();
         boolean exit = false;
         do {
@@ -128,7 +128,7 @@ public class App {
                     for (int i = 0; i < numberOfPatients; i++) {
                         addPatient();
                     }
-                    System.out.println("------------------------------------------------------");
+                    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     System.out.println();
                     menu();
                     choice = scanner.nextLine();
@@ -140,7 +140,7 @@ public class App {
                 }
                 case "3" -> {
                     DBUtils.getInstance().deleteAllPatients();
-                    System.out.println("------------------------------------------------------");
+                    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     System.out.println();
                     menu();
                     choice = scanner.nextLine();
@@ -153,7 +153,7 @@ public class App {
                     }
                     DBUtils.getInstance().deletePatient(name);
                     System.out.println(name + " has been deleted");
-                    System.out.println("------------------------------------------------------");
+                    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     System.out.println();
                     menu();
                     choice = scanner.nextLine();
@@ -166,7 +166,7 @@ public class App {
                     }
                     System.out.println(name + " is now not " + DBUtils.getInstance().getPatientHealthState(name));
                     DBUtils.getInstance().updatePatientHealthState(name);
-                    System.out.println("------------------------------------------------------");
+                    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     System.out.println();
                     menu();
                     choice = scanner.nextLine();
@@ -193,8 +193,9 @@ public class App {
                     }
                     if (DBUtils.getInstance().getPatientHourOfVisit(name) != null) {
                         DBUtils.getInstance().updatePatientHourOfVisit(name, parseDate);
-                        System.out.println(name + "'s time of visit is now " + DBUtils.getInstance().getPatientHourOfVisit(name));
-                        System.out.println("------------------------------------------------------");
+                        System.out.println(name + "'s" +
+                                " time of visit is now " + DBUtils.getInstance().getPatientHourOfVisit(name));
+                        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                         System.out.println();
                         menu();
                         choice = scanner.nextLine();
@@ -212,7 +213,7 @@ public class App {
                 }
                 case "8" -> {
                     DBUtils.getInstance().printAllPatients();
-                    System.out.println("------------------------------------------------------");
+                    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     System.out.println();
                     menu();
                     choice = scanner.nextLine();
