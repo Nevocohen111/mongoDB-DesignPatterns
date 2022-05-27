@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
+
     public static Scanner scanner = new Scanner(System.in);
 
     public static <T> T validateInput(String message,Class<?> type) {
