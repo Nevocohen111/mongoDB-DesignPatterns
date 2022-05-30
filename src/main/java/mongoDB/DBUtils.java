@@ -6,12 +6,12 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import ClassesMain.Patient;
-
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class DBUtils {
-
     private static volatile DBUtils instance = null;
 
     public static DBUtils getInstance() {
@@ -25,9 +25,11 @@ public class DBUtils {
         return instance;
     }
 
+
     public MongoClient getMongoClient() {
-        String URI = "mongodb://localhost:27017";
-        return MongoClients.create(URI);
+        Logger logger = Logger.getLogger("org.mongodb.driver");
+        logger.setLevel(Level.SEVERE);
+        return MongoClients.create("mongodb://localhost:27017");
     }
 
     public MongoDatabase getDatabase() {
