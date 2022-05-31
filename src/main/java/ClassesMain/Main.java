@@ -1,4 +1,7 @@
 package ClassesMain;
+import Interface.IDeceaseInstanceInitializer;
+import enums.EDeceases;
+
 import java.util.Date;
 
 public class Main {
@@ -22,18 +25,22 @@ public class Main {
 
 
         //initializing the strategies.
-  /*    IDeceaseInstanceInitializer eyeInfection = Leumit.getStrategy(EDeceases.BACTERIAL_INFECTION);
+      IDeceaseInstanceInitializer eyeInfection = Leumit.getStrategy(EDeceases.BACTERIAL_INFECTION);
         IDeceaseInstanceInitializer flu = Leumit.getStrategy(EDeceases.FLU);
         IDeceaseInstanceInitializer burn = Leumit.getStrategy(EDeceases.BURN);
         IDeceaseInstanceInitializer headache = Leumit.getStrategy(EDeceases.HEADACHE);
         IDeceaseInstanceInitializer throatVirus = Leumit.getStrategy(EDeceases.BACTERIAL_INFECTION);
         IDeceaseInstanceInitializer vomiting = Leumit.getStrategy(EDeceases.VOMITING);
-        Leumit.getDecease(eyeInfection,Josh);
         Leumit.getDecease(flu,Joseph);
+        Leumit.getDecease(eyeInfection,Josh);
         Leumit.getDecease(burn,John);
-        Leumit.getDecease(headache,Jason);
+        Leumit.getDecease(vomiting,Jimmy);
         Leumit.getDecease(throatVirus,Jane);
-        Leumit.getDecease(vomiting,Jimmy);*/
+        Leumit.getDecease(headache,Jason);
+
+
+
+
 
 
 

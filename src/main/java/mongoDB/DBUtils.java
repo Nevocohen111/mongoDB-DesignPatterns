@@ -1,11 +1,11 @@
 package mongoDB;
+import ClassesMain.Patient;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
-import ClassesMain.Patient;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
