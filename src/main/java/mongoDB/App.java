@@ -105,7 +105,7 @@ public class App {
         System.out.println("5.Update a patient's health state");
         System.out.println("6.Change a patient's hour of visit");
         System.out.println("7.Find a patient by a given name");
-        System.out.println("8.Print all patients");
+        System.out.println("8.Show all patients");
         System.out.println("9.Exit");
         System.out.print("Enter your choice: ");
     }
@@ -163,7 +163,7 @@ public class App {
                         System.out.println("Invalid input");
                         name = validateInput("Enter patient's name :", String.class);
                     }
-                    System.out.println(name + " is now not " + DBUtils.getInstance().getPatientHealthState(name));
+                    System.out.println(name + "health state changed from  " +  DBUtils.getInstance().getPatientHealthState(name) + " to "+ DBUtils.getInstance().getTheOppositePatientHealthState(name));
                     DBUtils.getInstance().updatePatientHealthState(name);
                     System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     System.out.println();
