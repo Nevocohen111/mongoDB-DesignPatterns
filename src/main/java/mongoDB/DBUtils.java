@@ -71,6 +71,7 @@ public class DBUtils {
         }
     }
 
+
     public String getPatientHealthState(String name) {
         if (getCollection().find(Filters.eq("name", name)).first().getBoolean("isHealthy")) {
             return "healthy";
