@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import java.util.Date;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,6 +25,8 @@ public class DBUtils {
         }
         return instance;
     }
+
+    private DBUtils() {}
 
 
     public MongoClient getMongoClient() {
@@ -98,7 +101,7 @@ public class DBUtils {
 
     public Date getPatientHourOfVisit(String name) {
         try {
-            return getCollection().find(Filters.eq("name", name)).first().getDate("timeOfReservation");
+            return Objects.requireNonNull(getCollection().find(Filters.eq("name", name)).first(),"No date provided").getDate("timeOfReservation");
         } catch (NullPointerException e) {
             return null;
         }

@@ -119,10 +119,10 @@ public class App {
         do {
             switch (choice) {
                 case "1" -> {
-                    int numberOfPatients = validateInput("How many patients do you want to add(Minimum 2)?", int.class);
+                    int numberOfPatients = validateInput("How many patients do you want to add(Minimum 2)?", Integer.class);
                     while (numberOfPatients < 2) {
                         System.out.println("Invalid input");
-                        numberOfPatients = validateInput("How many patients do you want to add?", int.class);
+                        numberOfPatients = validateInput("How many patients do you want to add?", Integer.class);
                     }
                     for (int i = 0; i < numberOfPatients; i++) {
                         addPatient();
@@ -186,7 +186,7 @@ public class App {
                         System.out.println("Invalid input");
                         return;
                     }
-                    while (Objects.requireNonNull(timeOfVisit).before(new Date())) {
+                    while (Objects.requireNonNull(timeOfVisit,"No time of visit recorded").before(new Date())) {
                         System.out.println("Can't choose a date which has already passed!");
                         timeOfVisit = validateInput("Enter patient's time of visit:", Date.class);
                     }

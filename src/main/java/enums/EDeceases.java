@@ -2,7 +2,6 @@ package enums;
 import Interface.IDeceaseInstanceInitializer;
 import Strategies.*;
 import ClassesMain.Patient;
-
 public enum EDeceases {
     COLD(new ColdStrategy(new Patient())),
     FLU(new FluStrategy(new Patient())),
