@@ -28,7 +28,6 @@ public class DBUtils {
 
     private DBUtils() {}
 
-
     public MongoClient getMongoClient() {
         Logger logger = Logger.getLogger("org.mongodb.driver");
         logger.setLevel(Level.SEVERE);
